@@ -1,0 +1,57 @@
+@layer base {
+    html {
+        @apply text-baseSize;
+    }
+
+    body {
+        @apply font-body;
+        min-height: 100dvh;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        text-wrap: balance;
+    }
+
+    p {
+        text-wrap: pretty;
+    }
+
+    h1 {
+        @apply font-heading text-h1;
+    }
+
+    h2 {
+        @apply font-heading text-h2;
+    }
+
+    h3 {
+        @apply font-heading text-h3;
+    }
+
+    h4 {
+        @apply font-heading text-h4;
+    }
+
+    h5 {
+        @apply font-nav text-h5 tracking-h5;
+    }
+
+    .subheading1 {
+        @apply font-heading text-subheading1;
+    }
+
+    .subheading2 {
+        @apply font-nav text-subheading2 tracking-subheading2;
+    }
+
+    .nav-text {
+        @apply font-nav text-nav tracking-nav;
+    }
+
+    .body-text {
+        @apply font-body text-base;
+    }
+}

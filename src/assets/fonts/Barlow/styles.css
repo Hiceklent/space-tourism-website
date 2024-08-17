@@ -1,0 +1,5 @@
+@font-face {
+  font-family: 'Barlow-Regular';
+  src: url(./Barlow-Regular.woff2) format('woff2'),
+       url(./Barlow-Regular.woff) format('woff');
+}
