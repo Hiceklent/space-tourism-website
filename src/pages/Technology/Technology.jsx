@@ -1,19 +1,8 @@
-//const Technology = () => {
-  //return (
-   // <div>Este es el Technology</div>
-//  )
-//}
 import '../Technology/Technology.scss'
-import Img1 from '../../assets/images/technology/img1.png'
-import Img2 from '../../assets/images/technology/img2.png'
-import Img3 from '../../assets/images/technology/img3.jpg'
+
 
 // src/pages/PageFour.js
 import React, { useState } from 'react';
- 
-import URL_API  from "https://space-tourism-api.vercel.app/api/technology"
-
-
 
 const sections = [
   {
@@ -53,7 +42,7 @@ const sections = [
 
 function Technology() {
   const [activeSection, setActiveSection] = useState(sections[0]);
-   URL_API
+   
   return (
      
     <div className="flex flex-col tablet:flex-row p-4">
