@@ -1,4 +1,25 @@
 import React from "react";
+import {getDataDestinations} from '../../services/axios-service';
+import {} from '../../config/api-controller';
+
+const Datadestination = () => {
+  const navigate = useNavigate();
+  const { destinations } = useParams();
+  const [ destination, setDestinations ] = useState({});
+
+  const fetchdestinationsById = useCallback(() => {
+    getDataDestinationById(Id)
+      .then((response) => {
+        console.log(response);
+        setDestinations(response);
+      })
+      .catch((error) => console.warn(error));
+  }, [destinations]);
+
+  useEffect(() => {
+    fetchdestination();
+  }, [fetchdestination]);
+}
 
 const Destination = () => {
   return (
