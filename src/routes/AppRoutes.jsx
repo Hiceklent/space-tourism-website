@@ -11,11 +11,11 @@ const AppRouter = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />} >
-          <Route path="/" element={<Home />} />
-          <Route path="/crew" element={<Crew />} />
+          {/*<Route path="/" element={<Home />} />*/}
           <Route path="/destination" element={<Destination />} />
+         {/* <Route path="/crew" element={<Crew />} />
           <Route path="/technology" element={<Technology />} />
-          <Route path="*" element={<NotFound404 />} />
+          <Route path="*" element={<NotFound404 />} />*/}
         </Route>
       </Routes>
     </Router>
