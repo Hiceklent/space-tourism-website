@@ -64,7 +64,7 @@ function Technology() {
       <div className="tablet:w-3/4 p-4 flex flex-col tablet:flex-row">
         <div className="tablet:w-1/2 mb-4 tablet:mb-0">
            <span className="text-1xl font-bold mb-2"> {activeSection.subtitle} </span>
-          <h2 className="text-2xl font-bold mb-2">{activeSection.title}</h2>
+          <h2 className="text-technology">{activeSection.title}</h2>
           <p>{activeSection.content}</p>
         </div>
         <div className="tablet:w-1/2">
