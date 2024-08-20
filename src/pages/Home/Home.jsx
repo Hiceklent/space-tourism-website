@@ -1,6 +1,8 @@
 const Home = () => {
   return (
-    <div>Este es el Home</div>
+    <div className='w-full h-screen bg-home-mobile bg-cover bg-center md:bg-home-desktop  bg-no-repeat'>
+      
+    </div>
   )
 }
 

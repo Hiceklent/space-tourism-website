@@ -33,6 +33,25 @@ export default {
         secondary: '#D0D6F9',
         white: '#FFFFFF',
       },
+      backgroundImage: {
+
+        // BG HOME
+        'home-desktop': "url('/assets/images/home/background-home-desktop.jpg')",
+        'home-mobile': "url('/assets/images/home/background-home-mobile.jpg')",
+
+        // BG DESTINATION
+        'destination-desktop': "url('/assets/images/destination/background-destination-desktop.jpg')",
+        'destination-mobile': "url('/assets/images/destination/background-destination-mobile.jpg')",
+
+        // BG CREW
+        'crew-desktop': "url('/assets/images/crew/background-crew-desktop.jpg')",
+        'crew-mobile': "url('/assets/images/crew/background-crew-mobile.jpg')",
+
+        // BG Technology
+        'technology-desktop': "url('/assets/images/technology/background-technology-desktop.jpg')",
+        'technology-mobile': "url('/assets/images/technology/background-technology-mobile.jpg')",
+
+      },
     },
   },
   plugins: [],
