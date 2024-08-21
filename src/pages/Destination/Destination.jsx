@@ -1,76 +1,100 @@
-import React from "react";
-import {getDataDestinations} from '../../services/axios-service';
-import {} from '../../config/api-controller';
-
-const Datadestination = () => {
-  const navigate = useNavigate();
-  const { destinations } = useParams();
-  const [ destination, setDestinations ] = useState({});
-
-  const fetchdestinationsById = useCallback(() => {
-    getDataDestinationById(Id)
-      .then((response) => {
-        console.log(response);
-        setDestinations(response);
-      })
-      .catch((error) => console.warn(error));
-  }, [destinations]);
-
-  useEffect(() => {
-    fetchdestination();
-  }, [fetchdestination]);
-}
+import {useCallback, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { getDestinationsById } from '../../services/axios-service';
 
 const Destination = () => {
+  const navigate = useNavigate();
+  const { destinationsId } = useParams();
+  console.log(destinationsId);
+  const [ destinations, setDestinations ] = useState({});
+
+  const fetchDestinationsById = useCallback(() => {
+    if (destinationsId) {
+      getDestinationsById(destinationsId)
+        .then((response) => {
+          setDestinations(response);
+        })
+        .catch((error) => console.warn(error));
+    } else {
+      console.error("No se encontró el ID de la destinación.");
+    }
+  }, [destinationsId]);
+
+  useEffect(() => {
+    console.log("ID recibido desde useParams:", destinationsId);
+    fetchDestinationsById();
+  }, [fetchDestinationsById]);
+  console.log(destinationsId);
+
+  if (!destination) {
+    return <p>Loading...</p>;
+  }
+
   return (
-    <section className="w-full h-screen bg-destination-mobile md:bg-destination-desktop bg-no-repeat bg-center bg-cover">
-    <div className="destination-page-wrapper">
-      <div className="destination-page-content-left">
-        <div className="destination-page-content-left-1">
-          <span>01</span>
-          <p>Pick your destination</p>
-        </div>
-        <div className="destination-page-content-left-2">
-          <img src="/assets/destination/image-moon.png" alt="moon" />
-        </div>
-      </div>
-
-      <div className="destination-page-content-right">
-        <div className="destination-page-content-right-nav">
-          <div className="destination-page-content-nav-item">Moon</div>
-          <div className="destination-page-content-nav-item">Mars</div>
-          <div className="destination-page-content-nav-item">Titan</div>
-          <div className="destination-page-content-nav-item">Europa</div>
-        </div>
-        <div className="destination-page-content-right-1">
-          <h1>Moon</h1>
-        </div>
-
-        <div className="destination-page-content-right-2">
-          <p>
-            {" "}
-            See our planet as you’ve never seen it before. A perfect relaxing
-            trip away to help regain perspective and come back refreshed.
-            While you’re there, take in some history by visiting the Luna 2
-            and Apollo 11 landing sites.
-          </p>
-        </div>
-        <div className="destination-page-content-line"></div>
-        <div className="destination-page-content-right-3">
-          <div>
-            <span>Avg. Distance</span>
-            <p>384,400 km</p>
+    <section className="w-full h-screen bg-destination-mobile md:bg-destination-desktop bg-no-repeat bg-center bg-cover flex items-center justify-center">
+      <div className="container mx-auto flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-16">
+        {/* Left Section */}
+        <div className="text-white space-y-8 flex flex-col items-center md:items-start">
+          <div className="flex items-center space-x-4 uppercase tracking-widest text-gray-400">
+            <span className="font-bold">01</span>
+            <p className="text-lg">Pick your destination</p>
           </div>
-
-          <div>
-            <span>Est. travel time</span>
-            <p> 3 days</p>
+          <div className="w-64 h-64 md:w-80 md:h-80">
+            <img
+              src={destination.image}
+              alt={destination.name}
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
+
+        {/* Right Section */}
+        <div className="text-white flex flex-col items-center md:items-start text-center md:text-left space-y-8">
+          {/* Navigation */}
+          <nav className="flex space-x-6 text-lg tracking-widest uppercase">
+            {["Moon", "Mars", "Europa", "Titan"].map((name) => (
+              <span
+                key={name}
+                className={`cursor-pointer hover:border-b-2 hover:border-white ${
+                  destination.name === name ? "border-b-2 border-white" : ""
+                }`}
+              >
+                {name}
+              </span>
+            ))}
+          </nav>
+
+          {/* Destination Details */}
+          <div>
+            <h1 className="text-6xl font-bold uppercase">{destination.name}</h1>
+            <p className="text-lg leading-relaxed text-gray-300 mt-4 max-w-md">
+              {destination.description}
+            </p>
+          </div>
+
+          {/* Line Divider */}
+          <div className="w-full h-px bg-gray-600"></div>
+
+          {/* Additional Info */}
+          <div className="flex space-x-12 text-gray-400">
+            <div className="flex flex-col space-y-2">
+              <span className="uppercase text-sm tracking-widest">Avg. Distance</span>
+              <p className="text-2xl text-white font-semibold">
+                {destination.distance}
+              </p>
+            </div>
+
+            <div className="flex flex-col space-y-2">
+              <span className="uppercase text-sm tracking-widest">Est. Travel Time</span>
+              <p className="text-2xl text-white font-semibold">
+                {destination.travel}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-  )
-}
+    </section>
+  );
+};
 
 export default Destination
