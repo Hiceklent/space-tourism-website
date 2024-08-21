@@ -3,7 +3,7 @@ import endpoints from "../config/api-controller";
 
 // GET METHOD
 
-export const getDataDestinations = async () => {
+export const getDestinations = async () => {
   try {
     const respuesta = await axios.get(endpoints.destinations);
     return respuesta.data;
@@ -13,16 +13,17 @@ export const getDataDestinations = async () => {
     return null;
   }
 };
-export const getdestinationsId = async (destinations) => {
+export const getDestinationsById = async (destinationsId) => {
   try {
-    const { data } = await axios.get(endpoints.destinationsId(destinations));
+    console.log("Solicitando:", endpoints.destinationsById(destinationsId));
+    const { data } = await axios.get(endpoints.destinationsById(destinationsId));
     return data;
   } catch (error) {
     console.error(error);
     return null;
   }
 };
-/*export const getData = async () => {
+export const getCrew = async () => {
   try {
     const respuesta = await axios.get(endpoints.crew);
     return respuesta.data;
@@ -32,16 +33,16 @@ export const getdestinationsId = async (destinations) => {
     return null;
   }
 };
-export const getcrewById = async (crew) => {
+export const getCrewById = async (crewId) => {
   try {
-    const { data } = await axios.get(endpoints.crew(crew));
+    const { data } = await axios.get(endpoints.crewById(crewId));
     return data;
   } catch (error) {
     console.error(error);
     return null;
   }
 };
-export const getData = async () => {
+export const getTechnology = async () => {
   try {
     const respuesta = await axios.get(endpoints.technology);
     return respuesta.data;
@@ -51,12 +52,12 @@ export const getData = async () => {
     return null;
   }
 };
-export const gettechnology = async (technology) => {
+export const getTechnologyById = async (technologyId) => {
   try {
-    const { data } = await axios.get(endpoints.technology(technology));
+    const { data } = await axios.get(endpoints.technologyById(technologyId));
     return data;
   } catch (error) {
     console.error(error);
     return null;
   }
-};*/
+};
