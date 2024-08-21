@@ -5,6 +5,7 @@ import Destination from "../pages/Destination/Destination.jsx"
 import Technology from "../pages/Technology/Technology.jsx"
 import NotFound404 from "../pages/NotFound404/NotFound404.jsx"
 import Layout from "../components/Layout/Layout.jsx"
+import Pagination from "../pages/Technology/Pagination.jsx"
 
 const AppRouter = () => {
   return (
@@ -16,6 +17,7 @@ const AppRouter = () => {
           <Route path="/destination" element={<Destination />} />
           <Route path="/technology" element={<Technology />} />
           <Route path="*" element={<NotFound404 />} />
+          <Route path="/pagination" element={<Pagination />} />
         </Route>
       </Routes>
     </Router>

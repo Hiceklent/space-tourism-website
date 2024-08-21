@@ -1,0 +1,5 @@
+@font-face {
+  font-family: 'Bellefair-Regular';
+  src: url(./Bellefair-Regular.woff) format('woff'),
+       url(./Bellefair-Regular.woff2) format('woff2');
+}

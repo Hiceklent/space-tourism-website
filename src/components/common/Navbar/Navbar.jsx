@@ -8,12 +8,16 @@ const Navbar = () => {
     setOpen(!open)
   }
 
+  const closeMenu = () => {
+    setOpen(false)
+  }
+
   const menuItem = (
     <>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/destination">Destination</Link></li>
-      <li><Link to="/crew">Crew</Link></li>
-      <li><Link to="/technology">Technology</Link></li>
+      <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+      <li><Link to="/destination" onClick={closeMenu}>Destination</Link></li>
+      <li><Link to="/crew" onClick={closeMenu}>Crew</Link></li>
+      <li><Link to="/technology" onClick={closeMenu}>Technology</Link></li>
     </>
   )
 
@@ -29,7 +33,8 @@ const Navbar = () => {
       <button className="block md:hidden" onClick={toggleMenu}>menu</button>
 
       {/* Mobile Menu */}
-      <ul className={`md:hidden ${open ? 'block' : 'hidden'}`}>
+      <ul className={`md:hidden  ${open ? 'block' : 'hidden'}`}>
+        <button className="block md:hidden" onClick={toggleMenu}>close</button>
         {open && menuItem}
       </ul>
     </nav>
