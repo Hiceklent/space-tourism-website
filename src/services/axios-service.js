@@ -22,7 +22,7 @@ export const getdestinationsId = async (destinations) => {
     return null;
   }
 };
-/*export const getData = async () => {
+export const getDataCrew = async () => {
   try {
     const respuesta = await axios.get(endpoints.crew);
     return respuesta.data;
@@ -51,7 +51,7 @@ export const getData = async () => {
     return null;
   }
 };
-export const gettechnology = async (technology) => {
+export const getTechnology = async (technology) => {
   try {
     const { data } = await axios.get(endpoints.technology(technology));
     return data;
@@ -59,4 +59,4 @@ export const gettechnology = async (technology) => {
     console.error(error);
     return null;
   }
-};*/
+};

@@ -74,3 +74,22 @@ const Destination = () => {
 }
 
 export default Destination
+
+
+// import { getDataDestinations } from "../services/axios-service.js";
+
+
+// const [destinations, setDestinations] = useState([]);
+
+//   const fetchDestinations = useCallback(() => {
+//     getDataDestinations()
+//       .then((response) => {
+//         setDestinations(response);
+//       })
+//       .catch((error) => console.warn(error));
+//   }, []);
+
+//   useEffect(() => {
+//     fetchDestinations();
+//   }, [fetchDestinations]);
+//   console.log(destinations);
