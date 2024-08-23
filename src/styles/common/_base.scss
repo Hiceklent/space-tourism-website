@@ -6,8 +6,9 @@
     body {
         @apply font-body;
         min-height: 100dvh;
+        @apply text-white;
+        @apply bg-primary;
     }
-
     h1,
     h2,
     h3,

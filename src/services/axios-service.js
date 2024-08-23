@@ -13,16 +13,8 @@ export const getDataDestinations = async () => {
     return null;
   }
 };
-export const getdestinationsId = async (destinations) => {
-  try {
-    const { data } = await axios.get(endpoints.destinationsId(destinations));
-    return data;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-};
-/*export const getData = async () => {
+
+export const getDataCrew = async () => {
   try {
     const respuesta = await axios.get(endpoints.crew);
     return respuesta.data;
@@ -32,16 +24,8 @@ export const getdestinationsId = async (destinations) => {
     return null;
   }
 };
-export const getcrewById = async (crew) => {
-  try {
-    const { data } = await axios.get(endpoints.crew(crew));
-    return data;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-};
-export const getData = async () => {
+
+export const getDataTechnology = async () => {
   try {
     const respuesta = await axios.get(endpoints.technology);
     return respuesta.data;
@@ -51,12 +35,3 @@ export const getData = async () => {
     return null;
   }
 };
-export const gettechnology = async (technology) => {
-  try {
-    const { data } = await axios.get(endpoints.technology(technology));
-    return data;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-};*/
