@@ -32,66 +32,62 @@ const Destination = () => {
   };
 
   return destinations && selectedDestination ? (
-    <section className="w-full h-screen bg-destination-mobile md:bg-destination-desktop bg-no-repeat bg-center bg-cover">
-      <div className="destination-page-wrapper">
-        <div className="destination-page-content-left">
+    <section className="w-full h-screen bg-destination-mobile md:bg-destination-desktop bg-no-repeat bg-center bg-cover flex  justify-center flex-col">
           <div className="destination-page-content-left-1">
 
 
             {isDestinationSelected ? (
               <>
-                <span>{selectedDestination.id.toString()}</span>
+                <span className="flex gap-4">{selectedDestination.id.toString()} <p>Pick your destination</p></span>
               </>
             ) : (
               <p>Loading...</p>
             )}
-
-            <p>Pick your destination</p>
+          </div>
+          <div className="destination-page-wrapper flex items-center gap-[100px] md:flex-row">
             <figure>
               <img
                 src={selectedDestination.images.webp}
                 alt={selectedDestination.name}
               />
             </figure>
+
+            <div className="destination-car">
+              <ul className='flex'>
+                {destinations.map((destination) => (
+                  <li
+                    id={destination.id}
+                    key={destination.name}
+                    className="destination-page-content-nav-item cursor-pointer p-[5px]"
+                    onClick={() => handleDestinationClick(destination.name)}
+                  >
+                    {destination.name}
+                  </li>
+                ))}
+
+              </ul>
+
+
+              <div className="destination-page-content-right-1">
+                <h1>{selectedDestination.name}</h1>
+              </div>
+
+              <div className="destination-page-content-right-2">
+                <p>{selectedDestination.description}</p>
+              </div>
+              <div className="destination-page-content-line"></div>
+              <div className="destination-page-content-right-3">
+                <div>
+                  <span>Avg. Distance</span>
+                  <p>{selectedDestination.distance}</p>
+                </div>
+                <div>
+                  <span>Est. travel time</span>
+                  <p>{selectedDestination.travel}</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <ul>
-          {destinations.map((destination) => (
-            <li
-              id={destination.id}
-              key={destination.name}
-              className="destination-page-content-nav-item cursor-pointer"
-              onClick={() => handleDestinationClick(destination.name)}
-            >
-              {destination.name}
-            </li>
-          ))}
-
-        </ul>
-
-
-        <div className="destination-page-content-right-1">
-          <h1>{selectedDestination.name}</h1>
-        </div>
-
-        <div className="destination-page-content-right-2">
-          <p>{selectedDestination.description}</p>
-        </div>
-        <div className="destination-page-content-line"></div>
-        <div className="destination-page-content-right-3">
-          <div>
-            <span>Avg. Distance</span>
-            <p>{selectedDestination.distance}</p>
-          </div>
-          <div>
-            <span>Est. travel time</span>
-            <p>{selectedDestination.travel}</p>
-          </div>
-        </div>
-
-
-      </div>
     </section>
   ) : (
     <div className="w-full h-screen bg-destination-mobile md:bg-destination-desktop bg-no-repeat bg-center bg-cover">Load ...</div>
