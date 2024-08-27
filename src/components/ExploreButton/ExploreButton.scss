@@ -1,0 +1,15 @@
+.explore-button {
+    position: relative;
+    @apply p-4; 
+    @apply bg-white rounded-full size-[12rem] text-primary font-heading text-h4 flex justify-center items-center md:size-[17.125rem];// Agrega los estilos iniciales con Tailwind
+  
+    &::before {
+      @apply content-[''] absolute left-0 top-0 size-full rounded-full outline-none outline-offset-0 transition-all duration-300 ease-in-out;
+    }
+  
+    &:hover::before {
+      @apply outline-[176px] ;
+        outline-color: rgba(255, 255, 255, 0.26);
+       // Aumenta el tamaño d       el borde y cambia su color al hacer hover
+    }
+  }

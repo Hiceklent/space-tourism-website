@@ -7,14 +7,17 @@ import NotFound404 from "../pages/NotFound404/NotFound404.jsx"
 import Layout from "../components/Layout/Layout.jsx"
 import Pagination from "../pages/Technology/Pagination.jsx"
 
-const AppRouter = () => {
+  const AppRouter = () => {
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Layout />} >
           <Route path="/" element={<Home />} />
-          <Route path="/crew" element={<Crew />} />
           <Route path="/destination" element={<Destination />} />
+          <Route path="/destination/:id" element={<Destination />} />
+
+          <Route path="/crew" element={<Crew />} />
           <Route path="/technology" element={<Technology />} />
           <Route path="*" element={<NotFound404 />} />
           <Route path="/pagination" element={<Pagination />} />
