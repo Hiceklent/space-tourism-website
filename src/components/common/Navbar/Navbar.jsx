@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
+
 const Navbar = () => {
   const [open, setOpen] = useState(false)
 
@@ -14,30 +15,32 @@ const Navbar = () => {
 
   const menuItem = (
     <>
-      <li><Link to="/" onClick={closeMenu}>Home</Link></li>
-      <li><Link to="/destination" onClick={closeMenu}>Destination</Link></li>
-      <li><Link to="/crew" onClick={closeMenu}>Crew</Link></li>
-      <li><Link to="/technology" onClick={closeMenu}>Technology</Link></li>
+      <Link to="/" onClick={closeMenu}>Home</Link>
+      <Link to="/destination" onClick={closeMenu}>Destination</Link>
+      <Link to="/crew" onClick={closeMenu}>Crew</Link>
+      <Link to="/technology" onClick={closeMenu}>Technology</Link>
     </>
   )
 
   return (
-    <nav>
+    <>
 
       {/* Desktop Menu */}
-      <ul className='hidden md:flex'>
+      <nav className='hidden md:flex gap-6 backdrop-blur-xl h-full items-center w-[51.875rem] justify-center'>
         {menuItem}
-      </ul>
+      </nav>
 
       {/* Botón Mobile Menu */}
-      <button className="block md:hidden" onClick={toggleMenu}>menu</button>
+      <button className="block md:hidden" onClick={toggleMenu}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="21"><g fill="#D0D6F9" fill-rule="evenodd"><path d="M0 0h24v3H0zM0 9h24v3H0zM0 18h24v3H0z" /></g></svg>
+      </button>
 
       {/* Mobile Menu */}
-      <ul className={`md:hidden  ${open ? 'block' : 'hidden'}`}>
+      <nav className={`md:hidden  ${open ? 'block' : 'hidden'} w-9/12 h-screen backdrop-blur-xl absolute top-0 right-0 flex flex-col p-6 gap-6 font-nav `}>
         <button className="block md:hidden" onClick={toggleMenu}>close</button>
         {open && menuItem}
-      </ul>
-    </nav>
+      </nav>
+    </>
   )
 }
 
